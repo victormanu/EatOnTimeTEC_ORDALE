@@ -1,0 +1,26 @@
+  <Icon active name={icon} />
+        <Icon style={styles.icon} name={this.state.icon} onPress={() => this._changeIcon()} />
+        <View style={styles.flowRight}>
+          <TextInput
+            placeholder='Ingrese su usuario Windows'
+
+            style={styles.searchInput}
+            onChange={this._onSearchTextChanged}
+            placeholderTextColor='#c5c5c5'
+
+          />
+
+        </View>
+
+        <View style={styles.flowRight}>
+          <TextInput
+            type={this.state.hidden}
+            placeholder='Ingrese su contraseña'
+            secureTextEntry={this.state.hidden}
+            style={styles.searchInput1}
+            onChange={this._onSearchTextChanged}
+            placeholderTextColor='#c5c5c5'
+
+          />
+
+        </View>
