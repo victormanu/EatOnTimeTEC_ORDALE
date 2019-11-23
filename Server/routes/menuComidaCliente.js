@@ -4,7 +4,7 @@ var express=require("express")
 var router=express.Router();
 
 // Crear orden y obtener id
-router.get("/generarOrden",function(req,res,next){
+router.post("/generarOrden",function(req,res,next){
     var request = new mssql.Request();
     request.query("EXEC CrearOrden @idUser="+req.body.id,function(err,result){
         if(err)
@@ -44,7 +44,7 @@ router.get("/",function(req,res,next){
 });
 
 // Seleccionar platillos
-router.get("/platilloSelec",function(req,res,next){
+router.post("/platilloSelec",function(req,res,next){
     var request = new mssql.Request();
     request.query("EXEC GetInfoPlatilloSeleccionado @idPlato="+req.body.id,function(err,result){
         if(err)
@@ -55,10 +55,22 @@ router.get("/platilloSelec",function(req,res,next){
     });
 });
 
-// agregar platillos
-router.get("/",function(req,res,next){
+// agregar platillos a la orden
+router.post("/agregaPlatillo",function(req,res,next){
     var request = new mssql.Request();
     request.query("EXEC AgregarPlatoAOrden @idOrden="+req.body.idOrden+", @idPlato="+req.body.idPlatillo,function(err,result){
+        if(err)
+            return next(err);
+        var data ={};
+        data= result.recordset;
+        res.send(data);
+    });
+});
+
+// eliminar platillos de la orden
+router.post("/eliminaPlatillo",function(req,res,next){
+    var request = new mssql.Request();
+    request.query("EXEC EliminarPlatilloMismoTipo @idPlatoOrden="+req.body.id,function(err,result){
         if(err)
             return next(err);
         var data ={};

@@ -10,7 +10,6 @@ var app=express();
 
 // Importar rutas
 var index=require ("./routes/index");
-var usuarios=require ("./routes/usuarios");
 var login=require ("./routes/login");
 var registro=require ("./routes/registro");
 var amigos=require ("./routes/amigos");
@@ -19,6 +18,7 @@ var perfil=require ("./routes/perfil");
 var ordenes=require ("./routes/ordenes");
 var configuraciones=require ("./routes/configuraciones");
 var encargadoMenu=require ("./routes/encargadoMenu");
+var cocineros=require ("./routes/cocineros");
 
 app.use(bodyParser.urlencoded({
     extended:false
@@ -37,7 +37,6 @@ app.use(function(req,res,next){
 
 // Uso de rutas
 app.use("/",index);
-app.use("/usuarios",usuarios);
 app.use("/login",login);
 app.use("/registro",registro);
 app.use("/amigos",amigos);
@@ -46,6 +45,7 @@ app.use("/perfil",perfil);
 app.use("/ordenes",ordenes);
 app.use("/configuraciones",configuraciones);
 app.use("/encargadoMenu",encargadoMenu);
+app.use("/cocineros",cocineros);
 
 
 module.exports=app;
