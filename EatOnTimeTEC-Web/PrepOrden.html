@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head> <!-- Configuraciones iniciales -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mis Órdenes</title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/freelancer.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="app/app.module.js"></script>
+    <script src="app/EmployeeController.js"></script>
+</head>
+<body style="background-image:url(http://imgs.mi9.com/uploads/abstract/4147/abstract-blue-backgrounds-34_1920x1200_71451.jpg)">
+
+    <!-- HEADER SECTION -->
+
+    <nav class="navbar navbar-default" ; ng-controller="EmployeeCtrl" ng-init="getNavbarValues()">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="Cocinero.html" style="font-size: xx-large; font-style: oblique;"><img src="https://cdn1.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/eat-circle-orange-512.png" 
+                  alt="Green dot" height="64" width="64">EatOnTimeTEC
+                  </a>
+            </div> <!-- Carga de la imagen -->
+            <ul class="nav navbar-nav">
+                <!-- Carga de la barra superior con los datos del usuario -->
+                <li><a href="#" id="userName"></a></li>
+                <li><a href="#" id="userID"></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="LogIn.html"><span class="glyphicon glyphicon-log-out"></span>Cerrar Sesión</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="row">
+        <div style="padding-top: 10px; padding-left: 40px;">
+            <label for="ida" style="color: whitesmoke; font-size: larger;">Orden 66</label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div style="text-align: center; padding-top: 10px">
+            <div class="col-lg-3">
+                <button class="encargadoBTN" onclick="window.location.href='VerOrden.html';"><span>Platillo 1</span></button>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="row" style="padding-top: 200px; padding-left: 50px;">
+        <div class="col-lg-4">
+            <button type="button" onclick="window.location.href='MisOrdenes.html'" class="btn btn-primary">Regresar</button>
+        </div>
+    </div>
+
+    <style>
+            .encargadoBTN {
+              display: inline-block;
+              border-radius: 4px;
+              background-color: #3c9920;
+              border: none;
+              color: #FFFFFF;
+              text-align: center;
+              font-size: 28px;
+              padding: 20px;
+              width: 150px;
+              height: 150px;
+              transition: all 0.5s;
+              cursor: pointer;
+              margin: 5px;
+            }
+            
+            .encargadoBTN span {
+              cursor: pointer;
+              display: inline-block;
+              position: relative;
+              transition: 0.5s;
+            }
+            
+            .encargadoBTN span:after {
+              content: '\00bb';
+              position: absolute;
+              opacity: 0;
+              top: 0;
+              right: -20px;
+              transition: 0.5s;
+            }
+            
+            .encargadoBTN:hover span {
+              padding-right: 25px;
+            }
+            
+            .encargadoBTN:hover span:after {
+              opacity: 1;
+              right: 0;
+            }
+            </style>
+</body>
+</html>
