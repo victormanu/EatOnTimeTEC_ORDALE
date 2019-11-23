@@ -18,20 +18,42 @@ export default class SearchPage extends React.Component {
             list: [],
             showAlert: false,
             platos: "",
-            id: this.props.navigation.state.params.id
+           id: this.props.navigation.state.params.id
 
         }
         
-        axios.post(ip+"/ordenes/misOrdenes", {
-            "id": this.state.id,
-        })
+      
+    
+    
+            axios.get(ip+'/menuComidaCliente/todosPlatillos')
             .then((response) => {
                 console.log(response.data)
                 this.setState({ list: response.data })
-            }, (error) => {
-                console.log(error);
+            })
+            .catch(error => {
+              console.log(error);
             });
-    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        }
     _onSearchPressed = id => {
         console.log(id)
         console.log(this.state.list[id].name)
@@ -61,16 +83,16 @@ export default class SearchPage extends React.Component {
         console.disableYellowBox = true;
         return (
             <ImageBackground source={FondoInicio} style={styles.backgroundImage}>
-                <Text style={styles.titleText} >Mis Ordenes</Text>
+                <Text style={styles.titleText} >Menú</Text>
                 <View style={{ top: 90 }}>
                     {this.state.list.map((l, i) => (
                         <ListItem
                             onPress={() => this.alert(i)}
                             key={i}
-                            leftAvatar={{ source: { uri: "https://icon-icons.com/icons2/1151/PNG/128/1486505264-food-fork-kitchen-knife-meanns-restaurant_81404.png" } }}
-                            title={"Orden #" + l.idOrden}
+                            leftAvatar={{ source: { uri: "https://icon-icons.com/icons2/131/PNG/128/catering_food_dinner_20584.png" } }}
+                            title={"             " + l.NombrePlato}
                             bottomDivider
-                            rightTitle={l.porcentajeCompletitud + "%"}
+                           
                         />
                     ))
                     }

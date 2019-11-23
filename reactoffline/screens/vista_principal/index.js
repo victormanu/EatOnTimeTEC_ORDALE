@@ -16,25 +16,31 @@ import Perfil from '../../assets/perfil.png'
 import Amigos from '../../assets/amistad.png'
 import Orden from '../../assets/orden1.png'
 export default class SearchPage extends React.Component {
-
+    constructor(props) {
+        super(props)
+        this.state = {
+            id1: this.props.navigation.state.params.id
+        }
+    }
+    
     _onSearchPressed = () => {
-        this.props.navigation.navigate('Logins')
+        this.props.navigation.navigate('Logins',{id:this.state.id1})
 
     };
     _onSearchMenu = () => {
-        this.props.navigation.navigate('Logins')
+        this.props.navigation.navigate('Menus',{id:this.state.id1})
 
     };
     _onSearchPerfil = () => {
-        this.props.navigation.navigate('Perfils')
+        this.props.navigation.navigate('Perfils',{id:this.state.id1})
 
     };
     _onSearchAmigos = () => {
-        this.props.navigation.navigate('Logins')
+        this.props.navigation.navigate('Amigoss',{id:this.state.id1})
 
     };
     _onSearchOrdenes = () => {
-        this.props.navigation.navigate('Mis_Ordeness')
+        this.props.navigation.navigate('Mis_Ordeness',{id:this.state.id1})
 
     };
 
@@ -43,7 +49,7 @@ export default class SearchPage extends React.Component {
         return (
             <ImageBackground source={FondoInicio} style={styles.backgroundImage}>
                 <Image source={Logo} style={styles.image} />
-                <TouchableOpacity style={styles.FacebookStyle} onPress={this._onSearchPressed}>
+                <TouchableOpacity style={styles.FacebookStyle} onPress={this._onSearchMenu}>
                     <Image source={Menu} style={styles.image1} />
                     <Text style={styles.titleText} >Menú</Text>
                 </TouchableOpacity>
@@ -51,7 +57,7 @@ export default class SearchPage extends React.Component {
                     <Image source={Perfil} style={styles.image2} />
                     <Text style={styles.titleText1} >Perfil</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.FacebookStyle2} onPress={this._onSearchPressed}>
+                <TouchableOpacity style={styles.FacebookStyle2} onPress={this._onSearchAmigos}>
                     <Image source={Amigos} style={styles.image3} />
                     <Text style={styles.titleText2} >Amigos</Text>
                 </TouchableOpacity>

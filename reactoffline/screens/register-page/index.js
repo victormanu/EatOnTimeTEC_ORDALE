@@ -82,6 +82,9 @@ export default class SearchPage extends React.Component {
         })
             .then((response) => {
                 console.log(response.data)
+
+                this.props.navigation.navigate('Logins');
+
             }, (error) => {
                 console.log(error);
             });

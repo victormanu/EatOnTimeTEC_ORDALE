@@ -36,7 +36,8 @@ export default class SearchPage extends React.Component {
         })
             .then((response) => {
                 if (response.data.existe == 1 && response.data.rol == 1) {
-                    this.props.navigation.navigate('Principals1');
+                    console.log(response.data)
+                    this.props.navigation.navigate('Principals1',{id:response.data.idUsuario});
                     this.state.searchStringPassword = ""
                     this.state.searchStringUser = ""
                     this.setState({ message: '' });

@@ -30,10 +30,12 @@ export default class SearchPage extends React.Component {
             telefono:"",
             language:"San Jose",
             preferencias:"",
-            showAlert: false
+            showAlert: false,
+            id: this.props.navigation.state.params.id
         }
+        console.log(this.state.id)
         axios.post(ip+"/perfil/cliente", {
-            "id":2013048835,
+            "id":this.state.id,
             
         })
             .then((response) => {
@@ -108,7 +110,7 @@ export default class SearchPage extends React.Component {
            
         }
         axios.post(ip+"/perfil/modPerfilCliente", {
-            "id":"2013048835",
+            "id":parseInt(this.state.id),
             "nombre": this.state.nombre,
             "apellidos":this.state.apellidos,
             "correo": this.state.correo,

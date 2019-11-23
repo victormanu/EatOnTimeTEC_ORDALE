@@ -18,11 +18,11 @@ export default class SearchPage extends React.Component {
             list: [],
             showAlert: false,
             platos: "",
-            id: this.props.navigation.state.params.id
-
+          id: this.props.navigation.state.params.id
+        
         }
         
-        axios.post(ip+"/ordenes/misOrdenes", {
+        axios.post(ip+"/amigos/listaAmigos", {
             "id": this.state.id,
         })
             .then((response) => {
@@ -61,16 +61,16 @@ export default class SearchPage extends React.Component {
         console.disableYellowBox = true;
         return (
             <ImageBackground source={FondoInicio} style={styles.backgroundImage}>
-                <Text style={styles.titleText} >Mis Ordenes</Text>
+                <Text style={styles.titleText} >Lista de amigos</Text>
                 <View style={{ top: 90 }}>
                     {this.state.list.map((l, i) => (
                         <ListItem
                             onPress={() => this.alert(i)}
                             key={i}
-                            leftAvatar={{ source: { uri: "https://icon-icons.com/icons2/1151/PNG/128/1486505264-food-fork-kitchen-knife-meanns-restaurant_81404.png" } }}
-                            title={"Orden #" + l.idOrden}
+                            leftAvatar={{ source: { uri: "https://cdn.icon-icons.com/icons2/39/PNG/128/bootloader_users_person_people_6080.png" } }}
+                            title={"  " + l.nombreAmigo+" "+l.apellidoAmigo}
                             bottomDivider
-                            rightTitle={l.porcentajeCompletitud + "%"}
+                            
                         />
                     ))
                     }
