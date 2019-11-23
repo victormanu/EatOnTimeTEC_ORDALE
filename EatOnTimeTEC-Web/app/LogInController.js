@@ -5,7 +5,7 @@ app.controller("myLogInCtrl", function ($scope) {
     $scope.userID;
     $scope.userPassword;
     
-    var ip = "172.18.70.254";
+    var ip = "172.18.73.24";
 
     sessionStorage.removeItem("Eid");
 
@@ -25,7 +25,7 @@ app.controller("myLogInCtrl", function ($scope) {
                         if (response.data.rol == 2) { //cocinero
                             location.href = "Cocinero.html";
                         } 
-                        else if (response.data.rol == 1) { //admin
+                        else if (response.data.rol == 3) { //admin
                             location.href = "Administrador.html";
                         }
                         else if (response.data.rol == 4) { //encargado
