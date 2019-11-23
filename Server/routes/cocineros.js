@@ -43,6 +43,7 @@ router.post("/selecOrden",function(req,res,next){
 
 // Mostrar platillos de una orden
 router.post("/mostrarPlatillos",function(req,res,next){
+    console.log(req.body);
     var request = new mssql.Request();
     request.query("EXEC PlatosPorOrden @idOrden="+req.body.id,function(err,result){
         if(err)

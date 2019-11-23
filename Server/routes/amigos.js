@@ -10,8 +10,10 @@ router.post("/listaAmigos",function(req,res,next){
     request.query("EXEC MisAmigos @id="+req.body.id,
     function(err,result){
         if(err)
-            return next(err);    
-        res.send(result.rowsAffected);
+            return next(err);
+        var data ={};
+        data= result.recordset;
+        res.send(data);
     });
 });
 
@@ -25,8 +27,10 @@ router.post("/solicitudes",function(req,res,next){
     request.query("EXEC MisSolicitudesAmistad @id ="+req.body.id,
     function(err,result){
         if(err)
-            return next(err);    
-        res.send(result.rowsAffected);
+            return next(err);
+        var data ={};
+        data= result.recordset;
+        res.send(data);
     });
 });
 
